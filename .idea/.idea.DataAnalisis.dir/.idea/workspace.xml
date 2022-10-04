@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dbd94ac1-3eef-446d-b4f3-d0bfaf78ab22" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DataAnalisis.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DataAnalisis.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="dbd94ac1-3eef-446d-b4f3-d0bfaf78ab22" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +35,7 @@
       <updated>1663663713786</updated>
       <workItem from="1663663739631" duration="1570000" />
       <workItem from="1663680139872" duration="533000" />
-      <workItem from="1664282621160" duration="5213000" />
+      <workItem from="1664282621160" duration="5952000" />
     </task>
     <servers />
   </component>

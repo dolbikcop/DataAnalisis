@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "unitydatascience-364214",
+  "private_key_id": "ae1623ee9512337d5d05693241530754efa6b9e0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCHpMsdA3ixFZM9\nJSJ/JcCeHCML9S9hE9a3IHFfD6MDxV5r964CYvX1M/Hm8Nlgpd3MqTx+o7T9Bvqv\nN/RufiYaKDWWXla5l6CINNKpCK3NMGSFmxek9jD9QV5ODQLkZ6vaSJdUMw4Wj2lM\ny+w96CNoS95/2kzdM9LcW2wA2n6COPSCgc7kk1ygFXBOo9R+q2g+4ABD4QtXT9xx\nlMMIdzFoX5GIHSX/BolqBLcrlLne5njyme8MqRvz0OC1w8ZziSE7dc97q6RKp4XO\ntWtSjD1TTdQ0VhZmEmRz8WuOnYZH73Al0sC8V1ztSdWe7vboaL/p/7RkJ6N0hxDQ\nGsfiP9KNAgMBAAECggEAQPzET49FONqUY5wyDebhhR8H74e1/nXJzo0dpCTSvlDG\nb0YIOZ5+Js+PW00TaMmvHYoLsMTwRrYcTuypEHMiADA5lGR4eozZ3cgpEdFVq9Q+\npQBscJ1/VScHbq+vLg05eeiDkFSxsD9ffOrKsdJRfHu1C15kqypUIT0v3qzQJcU/\nUfXneex5aeDa0I2VYsndTn+Zt1O4+NljaOgPG/iQqH9f+iDBXqGXU11r5t9iHYX0\nfHrU8cb0hNVfcw2SbF9K6n3opK5Mg0IV57ebF93Mh7Sngu89c2QcCfXqAsr+fQil\nKHpDMFx4KeeXZOejszlV3wnEA45yxRMaJLcvyuHrZQKBgQC9oN8e5SWLiXfYZ6I1\nupPDlR1ewWVwxpC2K/6yrsuREhUw7bWoGhalWWNGuNuLgPS1cD/cMUs/VcUy5Fk/\nZLQA9A5MaTfp2wjrTXcLYsN9BQax+/91WP6Vs3XA64f3AjO57OhcaI1ePXBUpQk1\nPtdFDOpuxeCqe80xad9qusHr9wKBgQC3HsYiO4zvOkJF0Dkm0G0N+V4/c+CDN+Yt\nKKey7ne10e6zIhUmOHdWz/p4Hio7grTNfkO49KA3uNy03fSYzLJZxLP4jcbW83u7\nNWpYmmfQwTHV//YofmrlU8tMYZLlNtpK6O4UcBl3noKKRltzOOZixKBt19nQ2pwF\ntEdxUxSsmwKBgQC3uQ1z2X+u2dmLiZzXgZV4gRibnbSyty+t0KJMbJ4+R87QQP8n\nh185hIlzE9diKebtg3vb0sac7nTJAgSWLvNXmR3hWnAZ22Wg1MTp+x58GkqKVyUC\nhN7kG6OS7qAk6bVEBgx6u7F8BPq4h82MEP5woDriaEVr59a+cV1NAvSvsQKBgCec\nIH+HIhUdJPi08afTrcM4DYrsJcQ8cy2RfbTWoE5T+q4E0U5TKH0+v47792an/zPz\n+/Il+AIVmqgE2sOyg2GnisZY5InaYQk9pKNFwu8E2yLPGw/nSHgSiAcdlAjAtLc/\na0BAf0HAp7wBPAbQaAU1Qv5/kj37C4SwWkPJFM/BAoGAbdStIQcluU0GtUKbkN20\n3pnIcvZAUndL14usWuWsmcYIbj1ZDIYgjJQB5Sc79NDKwXHgu+XsdwaPKWw8QaYn\nr5lCDZGZCE320mVO7i1QDBQDMM1OUeUpUdIcbPJrS9x+VMrQ7Eklg5HVQGQkFB/v\n2/6WWuEmhTdvWVZZkDeZtAo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "unityservicedatasience@unitydatascience-364214.iam.gserviceaccount.com",
+  "client_id": "104216497725672736712",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/unityservicedatasience%40unitydatascience-364214.iam.gserviceaccount.com"
+}
