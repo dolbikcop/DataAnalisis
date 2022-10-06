@@ -3,10 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="cbfdfe5a-f0f6-41c0-b9f9-5b8f0d86f095" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DataAnalisis.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DataAnalisis.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DataAnalisis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DataAnalisis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/collab9.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnityDataScience/UnityDataScience/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/UnityDataScience/UnityDataScience/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnityDataScience/UnityDataScience/Assets/Script/AudioScr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnityDataScience/UnityDataScience/Assets/Script/AudioScr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnityDataScience/UnityDataScience/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/UnityDataScience/UnityDataScience/Logs/AssetImportWorker0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnityDataScience/UnityDataScience/Logs/AssetImportWorker1.log" beforeDir="false" afterPath="$PROJECT_DIR$/UnityDataScience/UnityDataScience/Logs/AssetImportWorker1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnityDataScience/UnityDataScience/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UnityDataScience/UnityDataScience/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,16 +52,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Projects/DataAnalisis",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/DataAnalisis&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Projects\DataAnalisis" />
@@ -60,6 +78,10 @@
       <workItem from="1664193142939" duration="2479000" />
       <workItem from="1664616136097" duration="1015000" />
       <workItem from="1664788849463" duration="2895000" />
+      <workItem from="1664902660039" duration="646000" />
+      <workItem from="1664976603246" duration="938000" />
+      <workItem from="1664979579904" duration="1217000" />
+      <workItem from="1665042692458" duration="3190000" />
     </task>
     <servers />
   </component>
@@ -78,6 +100,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/DataAnalisis$main.coverage" NAME="main Coverage Results" MODIFIED="1664791325710" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DataAnalisis$laba1.coverage" NAME="laba1 Coverage Results" MODIFIED="1664980202604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DataAnalisis$main.coverage" NAME="main Coverage Results" MODIFIED="1665044550281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

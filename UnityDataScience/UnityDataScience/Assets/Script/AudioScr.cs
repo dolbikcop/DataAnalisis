@@ -6,21 +6,23 @@ using UnityEngine.Networking;
 
 public class AudioScr : MonoBehaviour
 {
+    [SerializeField] private AudioClip goodSpeak;
     [SerializeField] private AudioClip normalSpeak;
     [SerializeField] private AudioClip badSpeak;
-    [SerializeField] private AudioClip selectSpeak;
+    
+    private AudioSource selectAudio;
 
     private Dictionary<string, float> dataSet = new Dictionary<string, float>();
-
-    private bool startStatus = false;
-    private int i = 1;
 
     private string webAddress =
         "https://sheets.googleapis.com/v4/spreadsheets/1DF3UfwPP3SA6qs4cogYEDMablnJhB9sTvtwOww7urhk/values/Лист1?key=AIzaSyCi4B0btrAgfmmo6WrU_WirZjNUSQrBNKs";
     void Start()
     {
         StartCoroutine(GoogleSheets());
+        selectAudio = GetComponent<AudioSource>();
+        StartCoroutine(PlaySelectAudio());
     }
+    
 
     private IEnumerator GoogleSheets()
     {
@@ -34,14 +36,30 @@ public class AudioScr : MonoBehaviour
         {
             var parseJson = JSON.Parse(itemRJ.ToString());
             var selectRow = parseJson[0].AsStringList;
-            dataSet.Add("Mon_" + selectRow[0], float.Parse(selectRow[2]));
+            dataSet.Add(selectRow[0], float.Parse(selectRow[4]));
         }
-        Debug.Log(dataSet["Mon_1"]);
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    IEnumerator PlaySelectAudio()
     {
-        
+        yield return new WaitForSeconds(3);
+        for (int i = 1; i < dataSet.Count + 1; i++)
+        {
+            switch (dataSet[i.ToString()])
+            {
+                case <=200: 
+                    selectAudio.clip = goodSpeak;
+                    break;
+                case >=2000:
+                    selectAudio.clip = badSpeak;
+                    break;
+                default:
+                    selectAudio.clip = normalSpeak;
+                    break;
+            }
+            selectAudio.Play();
+            yield return new WaitForSeconds(3);
+            Debug.Log(dataSet[i.ToString()]); 
+        }
     }
 }
