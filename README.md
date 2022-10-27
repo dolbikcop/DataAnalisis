@@ -1,5 +1,5 @@
 # АНАЛИЗ ДАННЫХ И ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ [in GameDev]
-Отчет по лабораторной работе #1 выполнил(а):
+Отчет по лабораторной работе #3 выполнил(а):
 - Биккужина Полина Дмитриевна
 - РИ210941
 Отметка о выполнении заданий (заполняется студентом):
@@ -21,209 +21,165 @@
 
 - Данные о работе: название работы, фио, группа, выполненные задания.
 - Цель работы.
-- Задание 1.
+- Задание 1.
 - Код реализации выполнения задания. Визуализация результатов выполнения (если применимо).
-- Задание 2.
+- Задание 2.
 - Код реализации выполнения задания. Визуализация результатов выполнения (если применимо).
-- Задание 3.
+- Задание 3.
 - Код реализации выполнения задания. Визуализация результатов выполнения (если применимо).
 - Выводы.
 - ✨Magic ✨
 
 ## Цель работы
-Ознакомиться с основными операторами зыка Python на примере реализации линейной регрессии.
+Познакомиться с программными средствами для организции
+передачи данных между инструментами google, Python и Unity
+
 
 ## Задание 1
-### Написать программы Hello World на Python и Unity
-#### Скриншоты из Google.Colab
-![Image alt](Images/collab1.jpg)
-![Image alt](Images/collab2.jpg)
-#### Скриншоты из Unity
-![Image alt](Images/collab3.jpg)
-![Image alt](Images/collab4.jpg)
 
+### Реализовать совместную работу и передачу данных в связке Python - Google-Sheets – Unity.
+ Создала модель "Плоскость-Сфера-Куб", установила все необходимые пакеты в Unity и Anaconda. 
+ Далее создала скрипт для шара, проект в MlAgent и начала тестировать.
+
+#### Изначально 3 копии модели:
+![Image alt](Images/i1.jpg)
+
+#### Затем 9 копий:
+![Image alt](Images/i2.jpg)
+
+#### 36 копии модели:
+![Image alt](Images/i3.jpg)
+![Image alt](Images/v4.gif)
+
+### Вывод консоли Anaconda
+![Image alt](Images/i4.jpg)
+Понятно, что с ростом числа попыток изменяются и некоторые параметры вывода
+
+_Mean Reward_ - стремится к 1
+
+_Std of reward_ - стремится в 0
+
+Можно сделать вывод что _Mean Reward_ и _Std of reward_ - это параметры успешности обучения.
+
+#### Результат обучения
+Шар научился находить путь до куба.
+![Image alt](Images/v5.gif)
 
 ## Задание 2
-### В разделе "ход работы" пошагово выполнить каждый пункт с описанием и примером реализации задачи по теме лабароторной работы.
-#### Подготовка данных:
-```py
-In [ ]:
-#Import the required modules, numpy for calculation, and Matplotlib for drawing
-import numpy as np
-import matplotlib.pyplot as plt
-#This code is for jupyter Notebook only
-%matplotlib inline
+### Подробно описать каждую строку файла конфигурации нейронной сети. Найти информацию о компонентах Decision Requester, Behavior Parameters.
+```
+behaviors:
+  RollerBall:                        #Имя агента
+    trainer_type: ppo                #Режим обучения (Proximal Policy Optimization).
+    hyperparameters:                 #Гиперпараметры.
+      batch_size: 10                 #Количество опытов на каждой итерации для обновления экстремумов функции.
+      buffer_size: 100               #Количество опыта, которое нужно набрать перед обновлением модели.
+      learning_rate: 3.0e-4          #Устанавливает шаг обучения (начальная скорость).
+      beta: 5.0e-4                   #Отвечает за случайность действия, повышая разнообразие и иследованность пространства обучения.
+      epsilon: 0.2                   #Порог расхождений между старой и новой политиками при обновлении.
+      lambd: 0.99                    #Определяет авторитетность оценок значений во времени. Чем выше значение, тем более авторитетен набор предыдущих оценок.
+      num_epoch: 3                   #Количество проходов через буфер опыта, при выполнении оптимизации.
+      learning_rate_schedule: linear #Определяет, как скорость обучения изменяется с течением времени, линейно уменьшает скорость.
+    network_settings:                #Определяет сетевые настройки.
+      normalize: false               #Отключается нормализация входных данных.
+      hidden_units: 128              #Количество нейронов в скрытых слоях сети.
+      num_layers: 2                  #Количество скрытых слоев для размещения нейронов.
+    reward_signals:                  #Задает сигналы о вознаграждении.
+      extrinsic:
+        gamma: 0.99                  #Коэффициент скидки для будущих вознаграждений.
+        strength: 1.0                #Шаг для learning_rate.
+    max_steps: 500000                #Общее количество шагов, которые должны быть выполнены в среде до завершения обучения.
+    time_horizon: 64                 #Количество циклов ML агента, хранящихся в буфере до ввода в модель.
+    summary_freq: 10000              #Количество опыта, который необходимо собрать перед созданием и отображением статистики.
 
-# define data, and change list to array
-x = [3,21,22,34,54,34,55,67,89,99]
-x = np.array(x)
-y = [2,22,24,65,79,82,55,130,150,199]
-y = np.array(y)
+```
+* **_Decision Requester_** - запрашивает решение через регулярные промежутки времени и обрабатывает чередование между ними во время обучения.
 
-#Show the effect of a scatter plot
-plt.scatter(x,y)
-```
-![Image alt](Images/collab5.jpg)
-#### Определение всвязные функции:
-* model() - функция определения модели линейной регрессии
-* lose_function() - функция потерь среднеквадратичной ошибки
-* optimize() - функция гадиентного спуска для нахождения частных производных
-* iterate() - функция-итератор для задоного количества значений
+* **_Behavior Parameters_** - определяет принятие объектом решений, в него указывается какой тип поведения будет использоваться: уже обученная модель или удалённый процесс обучения.
 
-```py
-In [ ]:
-#The basic linear regression model is wx+ b, and since this is a two-dimensional space, the model is ax+ b
-def model(a, b, x):
-    return a*x + b
-    
-#Tahe most commonly used loss function of linear regression model is the loss function of mean variance difference
-def loss_function(a, b, x, y):
-    num = len(x)
-    prediction=model(a,b,x)
-    return (0.5/num) * (np.square(prediction-y)).sum()
-    
-#The optimization function mainly USES partial derivatives to update two parameters a and b
-def optimize(a,b,x,y):
-    num = len(x)
-    prediction = model(a,b,x)
-    #Update the values of A and B by finding the partial derivatives of the loss function on a and b
-    da = (1.0/num) * ((prediction -y)*x).sum()
-    db = (1.0/num) * ((prediction -y).sum())
-    a = a - Lr*da
-    b = b - Lr*db
-    return a, b
-
-#iterated function, return a and b
-def iterate(a,b,x,y,times):
-    for i in range(times):
-    a,b = optimize(a,b,x,y)
-    return a,b
-```
-#### Инициализация объектов и визуализация данных первой итерации:
-```py
-In [ ]:
-#Initialize parameters and display
-a = np.random.rand(1)
-print(a)
-b = np.random.rand(1)
-print(b)
-
-Lr = 0.000001
-
-#For the first iteration, the parameter values, losses, and visualization after the iteration are displayed
-a,b = iterate(a,b,x,y,1)
-prediction=model(a,b,x)
-loss = loss_function(a, b, x, y)
-print(a,b,loss)
-plt.scatter(x,y)
-plt.plot(x,prediction)
-```
-#### Результаты первой итерации:
-[0.08183542]
-[0.87649108]
-[0.08704118] [0.87656709] 4479.971536742217
-[<matplotlib.lines.Line2D at 0x7fad8611d550>]
-```py
-a,b = iterate(a,b,x,y,1)
-```
-![Image alt](Images/collab6.jpg)
-#### Вторая итерация:
-[0.16533065]
-[0.48050683]
-[0.17524012] [0.48065143] 4062.888507308293
-[<matplotlib.lines.Line2D at 0x7fad86094190>]
-```py
-a,b = iterate(a,b,x,y,2)
-```
-![Image alt](Images/collab7.jpg)
-#### Третья итерация:
-[0.94623132]
-[0.51592021]
-[0.95373459] [0.51602501] 1174.0319250021817
-[<matplotlib.lines.Line2D at 0x7fad8655af90>]
-```py
-a,b = iterate(a,b,x,y,3)
-```
-![Image alt](Images/collab8.jpg)
-#### Четвертая итерация:
-[0.76534723]
-[0.54673834]
-[0.77759111] [0.54691214] 1659.1959078203301
-[<matplotlib.lines.Line2D at 0x7fad8633c450>]
-```py
-a,b = iterate(a,b,x,y,4)
-```
-![Image alt](Images/collab9.jpg)
-#### Пятая итерация:
-[0.82334478]
-[0.65606947]
-[0.83769487] [0.65627203] 1477.9418599356488
-[<matplotlib.lines.Line2D at 0x7fad85f30c50>]
-```py
-a,b = iterate(a,b,x,y,5)
-```
-![Image alt](Images/collab10.jpg)
-#### 1000-я итерация:
-[0.5099423]
-[0.57830139]
-[1.6909869] [0.59311942] 195.0163788436338
-[<matplotlib.lines.Line2D at 0x7fad85eb3090>]
-```py
-a,b = iterate(a,b,x,y,1000)
-```
-![Image alt](Images/collab11.jpg)
 ## Задание 3
-### Должна ли величина loss стремиться к нулю при изменении исходных
-Ответ: Да, величиная loss показывает потери при выполнении линейной регрессии. То есть то, 
-насколько эффективен метод model() при данных параметрах в качестве модели линейной регрессии. 
-При увеличении количества итераций(times в методе iterate) модель становится более эффективной,
-поэтому параметр loss будет уменьшаться и приближаться к 0.
-#### При times = 1, loss = 4479.971536742217
-```py
-a,b = iterate(a,b,x,y,1)
+### Доработать сцену и обучить ML-Agent таким образом, чтобы шар перемещался между двумя кубами разного цвета.
+#### Добавила еще куб, создала вариант префаба
+![Image alt](Images/v1.gif)
+#### Создала скрипт обучения сферы проходить между кубов 
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Unity.MLAgents;
+using Unity.MLAgents.Sensors;
+using Unity.MLAgents.Actuators;
+
+public class RollerAgent : Agent
+{
+    private Rigidbody rBody;
+    // Start is called before the first frame update
+    void Start()
+    {
+        rBody = GetComponent<Rigidbody>();
+    }
+
+    public Transform Target1;
+    public Transform Target2;
+
+    public override void OnEpisodeBegin()
+    {
+        if (transform.localPosition.y < 0)
+        {
+            rBody.angularVelocity = Vector3.zero;
+            rBody.velocity = Vector3.zero;
+            transform.localPosition = new Vector3(0, 0.5f, 0);
+        }
+
+        Target1.localPosition = new Vector3(Random.value * 8 - 4, 0.5f, Random.value * 8 - 4);
+        do
+        {
+            Target2.localPosition = new Vector3(Random.value * 8 - 4, 0.5f, Random.value * 8 - 4);
+        } while (Vector3.Distance(Target1.localPosition, Target2.localPosition) <= 2.3f);
+    }
+
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        sensor.AddObservation(Target1.localPosition);
+        sensor.AddObservation(Target2.localPosition);
+        sensor.AddObservation(transform.localPosition);
+        sensor.AddObservation(rBody.velocity.x);
+        sensor.AddObservation(rBody.velocity.z);
+    }
+
+    public float forceMultiPlayer = 10;
+
+    public override void OnActionReceived(ActionBuffers actions)
+    {
+        Vector3 controlSignal = Vector3.zero;
+        controlSignal.x = actions.ContinuousActions[0];
+        controlSignal.z = actions.ContinuousActions[1];
+        rBody.AddForce(controlSignal * forceMultiPlayer);
+
+        float distanceToTarget1 = Vector3.Distance(transform.localPosition, Target1.localPosition);
+        float distanceToTarget2 = Vector3.Distance(transform.localPosition, Target2.localPosition);
+        float distanceToTargets= Vector3.Distance(Target1.localPosition, Target2.localPosition);
+        
+        if (distanceToTarget1 + distanceToTarget2 <= distanceToTargets+0.3f)
+        {
+            SetReward(1.0f);
+            EndEpisode();
+        } else if (transform.localPosition.y < 0)
+        {
+            EndEpisode();
+        }
+    }
+}
 ```
-![Image alt](Images/collab6.jpg)
-
-#### При times = 5, loss = 1477.9418599356488
-```py
-a,b = iterate(a,b,x,y,5)
-```
-![Image alt](Images/collab10.jpg)
-
-#### При times = 30000, loss = 188.67480600721188
-```py
-a,b = iterate(a,b,x,y,30000)
-```
-![Image alt](Images/collab12.jpg)
+#### Результат обучения
+![Image alt](Images/v3.gif)
+![Image alt](Images/v2.gif)
+Пока модель обучилась не до конца. Шар очень часто заносить. 
+Но уже можно увидеть результат обучения.
 
 
-### Какова роль параметра Lr? Ответьте на вопрос, приведите пример выполнения кода, который подтверждает ваш ответ. В качестве эксперимента можете изменить значение параметра.
-Ответ: Lr - парамерт, регулирующий скорость обучения модели с каждой итерацией. 
-Чем больше Lr, тем быстрее уменьшается lose.
-
-#### При Lr = 0.000001
-##### Первая итерация:
-[0.08183542]
-[0.87649108]
-[0.08704118] [0.87656709] 4479.971536742217
-![Image alt](Images/collab6.jpg)
-#### Пятая итерация:
-[0.82334478]
-[0.65606947]
-[0.83769487] [0.65627203] 1477.9418599356488
-![Image alt](Images/collab10.jpg)
-#### При Lr = 0.0001
-##### Первая итерация:
-[0.45002876]
-[0.56698607]
-[0.85647853] [0.57285823] 1428.3667748081343
-![Image alt](Images/collab13.jpg)
-#### Пятая итерация:
-[0.77011916]
-[0.5569795]
-[1.59650738] [0.56798294] 224.89561245401
-![Image alt](Images/collab14.jpg)
 ## Выводы
-В ходе работы я ознакомилась с алгоритмом линейной регрессии. 
-Можно утверждать, что точность данного алгоритма зависит от количества итераций и параметра Lr.
+Данный метод обучения может помочь мне в различных игровых проектах для создания _AI персонажей, генерации случайных последовательностей и др_.
+
+Не смотря на интересность данного подхода, он всё же достаточно неудобный из-за технических проблем с Anaconda.
 #### ✨✨✨
